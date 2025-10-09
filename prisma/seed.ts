@@ -1,7 +1,6 @@
-import { PrismaClient } from "@prisma/client/extension";
-
-const { PrismaClientt } = require("@prisma/client");
-
+ import { PrismaClient } from "@prisma/client";
+//const { PrismaClientt } = import("@prisma/client");
+import 'dotenv/config';
 const prisma = new PrismaClient();
 
 async function seedDatabase() {
