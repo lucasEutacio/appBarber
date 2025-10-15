@@ -27,7 +27,8 @@ export default function Home() {
           <Image alt="banner" src="/banner-01.png" fill className="object-cover rounded-xl"/>
         </div>
         <div>
-          <Card className="mt-6">
+            <h2 className="uppercase text-gray-400 font-bold text-xl  mb-3 mt-6">agendamentos</h2>
+          <Card className="">
             <CardContent className="flex justify-between p-0">
               <div className="flex flex-col gap-2 py-5 pl-5">
                 <Badge className="w-fit">Confirmado</Badge>
