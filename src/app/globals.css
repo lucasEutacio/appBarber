@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base {
-  :root {
-    --background: 225 9% 9%;
-    --foreground: 210 40% 98%;
-    /* ...restante igual ao seu .dark */
-  }
-}
-
 @layer base {
   .dark {
     --background: 225 9% 9%;

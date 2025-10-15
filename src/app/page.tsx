@@ -1,3 +1,5 @@
+import { db } from "@/_lib/prisma";
+import { BarbershopItems } from "@/components/barberShopItems/barberShopItems";
 import Header from "@/components/header/header";
 import { Avatar } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -8,7 +10,10 @@ import { AvatarImage } from "@radix-ui/react-avatar";
 import { Icon, Search, SearchIcon } from "lucide-react";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home  () {
+
+  const barbershops = await db.barbershop.findMany({})
+  console.log({barbershops})
   return (
   <>
    <Header/>
@@ -31,11 +36,11 @@ export default function Home() {
           <Card className="">
             <CardContent className="flex justify-between p-0">
               <div className="flex flex-col gap-2 py-5 pl-5">
-                <Badge className="w-fit">Confirmado</Badge>
+                <Badge className="w-fit rounded-2xl">Confirmado</Badge>
                 <h3 className="font-bold">corte de cabelo</h3>
               <div className="flex items-center gap-2">
                  <Avatar className="h-6 w-6">
-                   <AvatarImage src="../../public/logo.png"/>
+                   <AvatarImage src="https://cdn-icons-png.flaticon.com/512/4792/4792929.png"/>
                  </Avatar>
                   <p>Barbearia fullStack week</p>
               </div>
@@ -48,6 +53,16 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
+          <div className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+             <h2 className="font-bold">Recomendados</h2> 
+              <div className="flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden">
+              
+                {barbershops.map(barbershops => <BarbershopItems
+                key={barbershops.id}
+                barbershops={barbershops}/>)}
+              
+              </div>
+          </div>
         </div>
    </div>
    </>
