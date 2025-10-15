@@ -13,6 +13,11 @@ import Image from "next/image";
 export default async function Home  () {
 
   const barbershops = await db.barbershop.findMany({})
+  const popularBarbershops = await db.barbershop.findMany({
+ orderBy: {
+   name: 'desc'
+ }
+  })
   console.log({barbershops})
   return (
   <>
@@ -58,6 +63,17 @@ export default async function Home  () {
               <div className="flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden">
               
                 {barbershops.map(barbershops => <BarbershopItems
+                key={barbershops.id}
+                barbershops={barbershops}/>)}
+              
+              </div>
+          </div>
+
+           <div className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+             <h2 className="font-bold">Populares</h2> 
+              <div className="flex gap-3 overflow-auto [&::-webkit-scrollbar]:hidden">
+              
+                {popularBarbershops.map(barbershops => <BarbershopItems
                 key={barbershops.id}
                 barbershops={barbershops}/>)}
               
