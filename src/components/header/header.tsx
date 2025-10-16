@@ -4,21 +4,21 @@ import { Button } from "../ui/button";
 import { MenuIcon } from "lucide-react";
 
 const Header = () => {
-    return ( 
+    return (
         <>
             <Card>
                 <CardContent className="justify-between items-center flex flex-row p-5 ">
-                    <Image alt="logo" src="/logo.png" height={18} width={120}/>
+                    <Image alt="logo" src="/logo.png" height={18} width={120} />
                     <Button
-                    size='icon'
-                    variant='outline'
+                        size='icon'
+                        variant='outline'
                     >
-                    <MenuIcon/>
+                        <MenuIcon />
                     </Button>
                 </CardContent>
             </Card>
         </>
-     );
+    );
 }
- 
+
 export default Header;
