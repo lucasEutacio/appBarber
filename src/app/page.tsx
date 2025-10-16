@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { Icon, Search, SearchIcon } from "lucide-react";
 import Image from "next/image";
-
+import Footer from "../components/footer/footer";
 export default async function Home  () {
 
   const barbershops = await db.barbershop.findMany({})
@@ -32,7 +32,43 @@ export default async function Home  () {
           <Button>
               <SearchIcon />
           </Button>
+          
         </div>
+
+        <div className="flex gap-4 mt-6 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
+
+          <Button className="gap-2" variant={"secondary"}>
+           <Image alt="cabelo" src="/cabelo.svg" height={16} width={16}/>
+           cabelo
+          </Button>
+
+          <Button className="gap-2" variant={"secondary"}>
+           <Image alt="barba" src="/barba.svg" height={16} width={16}/>
+           Barba
+          </Button>
+          
+          <Button className="gap-2" variant={"secondary"}>
+           <Image alt="Acabamento" src="/acabamento.svg" height={16} width={16}/>
+           Acabamento
+          </Button>
+
+           <Button className="gap-2" variant={"secondary"}>
+           <Image alt="Acabamento" src="/hidratacao.svg" height={16} width={16}/>
+           Hidratação
+          </Button>
+
+           <Button className="gap-2" variant={"secondary"}>
+           <Image alt="massagem" src="/massagem.svg" height={16} width={16}/>
+           Massagem
+          </Button>
+
+           <Button className="gap-2" variant={"secondary"}>
+           <Image alt="Acabamento" src="/sobrancelha.svg" height={16} width={16}/>
+           Sobrancelha
+          </Button>
+          
+        </div>
+
         <div className="relative w-full h-[150px] mt-6 ">
           <Image alt="banner" src="/banner-01.png" fill className="object-cover rounded-xl"/>
         </div>
@@ -81,6 +117,7 @@ export default async function Home  () {
           </div>
         </div>
    </div>
+   <Footer/>
    </>
   );
 
