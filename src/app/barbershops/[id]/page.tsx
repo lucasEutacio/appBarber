@@ -14,12 +14,17 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
     const barbershops = await db.barbershop.findUnique({
         where: {
             id: params.id
+        },
+        include: {
+            services: true
         }
     })
 
     if (!barbershops) {
         return notFound()
     }
+
+   console.log(barbershops.services)
     return (
         <div >
             <div className="relative w-full h-[250px]">
