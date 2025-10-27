@@ -9,13 +9,12 @@ interface ServiceItemProps {
 
 const ServiceItem = ({ service }: ServiceItemProps) => {
     return (
-        <CardContent className="flex items-center gap-3 p-3">
-            <Card>
-                <div >
+        <CardContent >
+            <Card className="flex items-center gap-3 p-3">
                     <div className="relative min-h-[110px] min-w-[110px] max-h-[110px] max-w-[110px]">
                         <Image alt={service.name} src={service.imageUrl} fill className="obeject-cover rounded-lg" />
                     </div>
-                    <div space-y-2>
+                    <div space-y-3 className="flex flex-col gap-2 flex-1">
                         <h3 className="font-semibold ">{service.name}</h3>
                         <p className="text-gray-400 text-sm">{service.description}</p>
                         <div className="flex items-center justify-between">
@@ -24,7 +23,6 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
                             <Button variant="secondary" size="sm">Reservar</Button>
                         </div>
                     </div>
-                </div>
             </Card>
         </CardContent>
     );
